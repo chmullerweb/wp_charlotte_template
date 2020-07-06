@@ -15,7 +15,13 @@ add_action('wp_enqueue_scripts', 'montheme_register_assets');
 
 // Définir des fonctionnalités personnalisées et supportées par mon thème
 function montheme_setup(){
+    //mon thème "supporte" le logo customisé
     add_theme_support( 'custom-logo' );
+    
+    //mon thème "supporte" les menus
+    add_theme_support('menus');
+    //je configure le menu en lui donnant un nom et une description
+    register_nav_menu( 'header', 'En tête du menu' );
 }
 
 add_action('after_setup_theme', 'montheme_setup');

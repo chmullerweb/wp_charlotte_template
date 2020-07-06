@@ -27,14 +27,24 @@
       <?php } ?>
     </div>
 
-    <!-- Je crée une navigation header dynamique -->
+    <!-- Je crée une navigation header dynamique avec wp_nav_menu -->
     <nav class="navigation navigation-top desktop-navigation">
-      <ul>
+
+    <?php 
+    //La zone de menu et son contenu à récupérer (toujours nommer la clé 'theme_location')
+    wp_nav_menu(
+        array(
+        'theme_location' => 'header',
+        'container' => false // évite que WP engloabe le <ul> dans une balise <div>
+        )
+    );
+    ?>
+        <!-- <ul>
         <li><a href="front-page.html">Accueil</a></li>
         <li><a href="index.html" class="active">Blog</a></li>
         <li><a href="page.html">Page</a></li>
         <li><a href="single.html">Article</a></li>
-      </ul>
+      </ul> -->
     </nav>
     <nav class="navigation navigation-top mobile-navigation">
       <ul>
