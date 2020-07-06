@@ -1,50 +1,6 @@
   <?php get_header(); ?>
 
-  <header class="site-header">
-    <div class="site-branding">
-      <a href="index.html"><img src="./assets/images/logo-rock-band.png" alt="Logo du site"></a>
-    </div>
-    <nav class="navigation navigation-top desktop-navigation">
-      <ul>
-        <li><a href="front-page.html">Accueil</a></li>
-        <li><a href="index.html" class="active">Blog</a></li>
-        <li><a href="page.html">Page</a></li>
-        <li><a href="single.html">Article</a></li>
-      </ul>
-    </nav>
-    <nav class="navigation navigation-top mobile-navigation">
-      <ul>
-        <li class="mobile-menu"><i class="fa fa-bars fa-1x"></i>
-          <ul class="sub-navigation">
-            <li><a href="front-page.html">Accueil</a></li>
-            <li><a href="index.html" class="active">Blog</a></li>
-            <li><a href="page.html">Page</a></li>
-            <li><a href="single.html">Article</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <nav class="navigation navigation-aside">
-      <ul>
-        <li class="search-toggle">
-          <a href="#"><i class="fas fa-search"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="count cart-counter">0</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <section class="search-popup">
-      <form class="search-form" action="index.html" method="post">
-        <input type="text" name="search" value="" placeholder="Tapez quelque chose...">
-        <input type="submit" name="submit" value="Rechercher">
-      </form>
-    </section>
-  </header>
+  
   <main class="container site-content">
     <section class="main-content">
       <article class="entry post">

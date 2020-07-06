@@ -12,3 +12,10 @@ function montheme_register_assets()
 }
 
 add_action('wp_enqueue_scripts', 'montheme_register_assets');
+
+// Définir des fonctionnalités personnalisées et supportées par mon thème
+function montheme_setup(){
+    add_theme_support( 'custom-logo' );
+}
+
+add_action('after_setup_theme', 'montheme_setup');
