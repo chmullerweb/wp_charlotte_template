@@ -1,3 +1,4 @@
+  <?php get_header(); ?>
 
   <header class="site-header">
     <div class="site-branding">
@@ -90,3 +91,4 @@
     </aside>
   </main>
 
+<?php get_footer( ); ?>

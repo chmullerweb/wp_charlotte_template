@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title><?php bloginfo('name'); ?></title>
 
     <!-- J'insère les liens nécessaires pour mon Layout -->
     <link rel="stylesheet" href="./assets/css/style.css">
