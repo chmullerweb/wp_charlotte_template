@@ -62,7 +62,7 @@
 </section>
 <section class="footer-infos container">
   <div class="copyright">
-    <p>© <?php echo get_theme_mod('copywrights_year')?> <?php echo get_theme_mod('copywrights_title_website')?>. <?php echo get_theme_mod('copywrights_text')?>.</p>
+    <p>© <?php echo get_theme_mod('copyrights_year')?> <?php echo get_theme_mod('copyrights_title_website')?>. <?php echo get_theme_mod('copyrights_text')?>.</p>
   </div>
   <div class="social-medias">
     <nav class="navigation navigation-bottom">

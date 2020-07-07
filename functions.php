@@ -100,26 +100,6 @@ function montheme_init_widgets() {
 add_action('widgets_init', 'montheme_init_widgets');
 
 
-//------------------------------------------------------------------------------------------
-// Définir la zone de Copywrights
-//------------------------------------------------------------------------------------------
-function montheme_init_copywrights() {
-    # Zone de Copywrights
-      register_sidebar(
-          array(
-              'id' => 'widgets-section-1', //ID de la div 
-              'name' => 'Zone de widgets 1', //nom du widget 
-             'description' => 'Description de la zone de widgets',
-             'before_widget' => '<div class="widget">', //ouvrir la balise <div> pour englober le widget 
-             'after_widget' => '</div>',  //fermer la balise 
-             'before_title' => '<h4 class="widget-title">', //ouvrir <h4> pour le titre du widget
-             'after_title' => '</h4>' //fermer la balise titre
-             )
-          );
- }
-
-        // Afficher la zone de Copywright
-add_action('widgets_init', 'montheme_init_copywrights');
 
 
 //------------------------------------------------------------------------------------------
