@@ -36,25 +36,23 @@
                                     echo trim($output, $separator);
                                     ?>
 
-                                  <!-- on affiche le nombre de commentaire --> 
-                                  <h4 class="comments-number"><i class="fas fa-comment"></i><?php comments_number( ' 0', ' 1', ' %');?></h4>
+                                  <!-- on affiche le nombre de commentaire -->
+                                  <h4 class="comments-number"><i class="fas fa-comment"></i><?php comments_number(' 0', ' 1', ' %'); ?></h4>
                               </section>
                               <h2 class="entry-title">
-                                  <a href="single.html">Vos meilleurs moments en concert</a>
+                                  <!-- on affiche le titre et son url pour accéder à l'article -->
+                                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                               </h2>
                           </section>
                       </header>
                       <section class="entry-content">
-                          <p>
-                              Excepteur sint occaecat cupidatat non proident,
-                              sunt in culpa qui officia deseru mollit anim id est laborum.
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                              do eiusmod tempor incididunt…
-                          </p>
+                          <!-- on affiche un extrait du contenu de l'article -->
+                          <?php the_content('(...)'); ?>
                       </section>
                       <footer class="entry-footer">
                           <div class="read-more">
-                              <a href="single.html">Lire la suite</a>
+                              <!-- on redirige vers l'url de l'article -->
+                              <a class="no_bb" href="<?php the_permalink(); ?>">Lire la suite</a>
                           </div>
                       </footer>
                   </article>

@@ -1027,6 +1027,7 @@ body {
   position: relative;
   display: inline-block;
   line-height: 1.78rem;
+  padding-top: 1rem;
 }
 
 .author-card {
@@ -1206,6 +1207,10 @@ body {
 .navigation-blog a.active::after {
     left: 0;
     width: 100%;
+}
+
+a.no_bb, .entry-content a{
+	text-decoration: none;
 }
 
 .navigation-blog a {
