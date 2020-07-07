@@ -1,32 +1,63 @@
 <footer class="site-footer">
 <section class="widgets-sections container">
-  <div class="widgets-section widgets-section-1">
-    <h4 class="widget-title">Zone de widgets 1</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing,
-      sed do eiusmod tempor incididunt.
-    </p>
+    <!-- Je crée une zone de Widget dynamique dans mon footer -->
+  <div class="widgets-section widgets-section-1" id="widgets-section-1">
+  <?php 
+      //vérifiez si la zone de widget contient du contenu avec en paramètre l'ID de la zone
+        if(is_active_sidebar('widgets-section-1')) {
+          //la fonction range/affiche le widget dans la zone widget renseignée par son ID
+          dynamic_sidebar('widgets-section-1');
+        } else {
+            ?>
+            <div class="widget">
+            <h4 class="widget-title">Zone de Widget</h4>
+            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
+            </div>
+        <?php    
+        }; 
+    ?>
   </div>
   <div class="widgets-section widgets-section-2">
-    <h4 class="widget-title">Zone de widgets 2</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing,
-      sed do eiusmod tempor incididunt.
-    </p>
+    <?php 
+        if(is_active_sidebar('widgets-section-2')) {
+          dynamic_sidebar('widgets-section-2');
+        } else {
+            ?>
+            <div class="widget">
+            <h4 class="widget-title">Zone de Widget</h4>
+            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
+            </div>
+        <?php    
+        }; 
+    ?> 
   </div>
   <div class="widgets-section widgets-section-3">
-    <h4 class="widget-title">Zone de widgets 3</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing,
-      sed do eiusmod tempor incididunt.
-    </p>
+  <?php 
+        if(is_active_sidebar('widgets-section-3')) {
+          dynamic_sidebar('widgets-section-3');
+        } else {
+            ?>
+            <div class="widget">
+            <h4 class="widget-title">Zone de Widget</h4>
+            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
+            </div>
+        <?php    
+        }; 
+    ?>
   </div>
   <div class="widgets-section widgets-section-4">
-    <h4 class="widget-title">Zone de widgets 4</h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing,
-      sed do eiusmod tempor incididunt.
-    </p>
+  <?php 
+        if(is_active_sidebar('widgets-section-4')) {
+          dynamic_sidebar('widgets-section-4');
+        } else {
+            ?>
+            <div class="widget">
+            <h4 class="widget-title">Zone de Widget</h4>
+            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
+            </div>
+        <?php    
+        }; 
+    ?>
   </div>
 </section>
 <section class="footer-infos container">

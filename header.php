@@ -39,12 +39,6 @@
         )
     );
     ?>
-        <!-- <ul>
-        <li><a href="front-page.html">Accueil</a></li>
-        <li><a href="index.html" class="active">Blog</a></li>
-        <li><a href="page.html">Page</a></li>
-        <li><a href="single.html">Article</a></li>
-      </ul> -->
     </nav>
     <nav class="navigation navigation-top mobile-navigation">
       <ul>

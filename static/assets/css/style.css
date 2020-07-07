@@ -958,7 +958,6 @@ body {
 .custom-blocks,
 .custom-presentation {
 	display: flex;
-	flex-wrap: wrap;
 }
 
 .custom-presentation-infos {
@@ -1398,6 +1397,12 @@ img {
 }
 
 @media (max-width:767px) {
+
+	.custom-blocks,
+	.custom-presentation {
+		flex-wrap: wrap;
+	}
+	
   .container {
     width: 550px;
   }
