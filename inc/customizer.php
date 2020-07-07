@@ -16,7 +16,7 @@ function montheme_customize_register($wp_customize){
     $wp_customize->add_section(
         'copyrights',
         array(
-            'title' => 'copyrights', //nom de la section
+            'title' => 'Copyrights', //nom de la section
             'description' => 'Réglages des copyrights', // Titre à l'intérieur de la section
             'panel' => 'copyrights_panel' //dans quel dossier va s'ajouter la section (donner l'ID)
         )

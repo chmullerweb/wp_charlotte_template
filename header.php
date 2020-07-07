@@ -34,7 +34,7 @@
     //La zone de menu et son contenu à récupérer (toujours nommer la clé 'theme_location')
     wp_nav_menu(
         array(
-        'theme_location' => 'header',
+        'theme_location' => 'nav_header',
         'container' => false // évite que WP engloabe le <ul> dans une balise <div>
         )
     );

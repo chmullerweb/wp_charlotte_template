@@ -18,6 +18,9 @@ add_action('wp_enqueue_scripts', 'montheme_register_assets');
 
 //------------------------------------------------------------------------------------------
 // Définir des fonctionnalités personnalisées et supportées par mon thème
+# Menu Header
+# Menu Footer
+# Logo
 //------------------------------------------------------------------------------------------
 function montheme_setup(){
     //mon thème "supporte" le logo customisé
@@ -25,8 +28,9 @@ function montheme_setup(){
 
     //mon thème "supporte" les menus
     add_theme_support('menus');
-    //je configure le menu en lui donnant un nom et une description
-    register_nav_menu( 'header', 'En tête du menu' );
+    //je configure le menu header et footer en lui donnant un nom et une description
+    register_nav_menu( 'nav_header', 'En tête du menu' );
+    register_nav_menu( 'nav_footer', 'Menu en pied de page' );
 }
 
 add_action('after_setup_theme', 'montheme_setup');

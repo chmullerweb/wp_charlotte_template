@@ -66,13 +66,14 @@
   </div>
   <div class="social-medias">
     <nav class="navigation navigation-bottom">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="index.html" class="active">Blog</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+    <?php
+       wp_nav_menu(
+           array(
+           'theme_location' => 'nav_footer'
+           )
+        );
+    ?>
+     </nav>
   </div>
 </section>
 </footer>
