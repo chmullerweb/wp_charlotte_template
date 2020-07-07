@@ -1,5 +1,8 @@
 <?php 
-    //Inclure les styles et script 
+//------------------------------------------------------------------------------------------
+  // Inclure les styles et script       
+//------------------------------------------------------------------------------------------
+
 function montheme_register_assets()
 {
     wp_register_style('fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Oswald:wght@500;600;700&display=swap');
@@ -13,7 +16,9 @@ function montheme_register_assets()
 
 add_action('wp_enqueue_scripts', 'montheme_register_assets');
 
+//------------------------------------------------------------------------------------------
 // Définir des fonctionnalités personnalisées et supportées par mon thème
+//------------------------------------------------------------------------------------------
 function montheme_setup(){
     //mon thème "supporte" le logo customisé
     add_theme_support( 'custom-logo' );
@@ -26,8 +31,10 @@ function montheme_setup(){
 
 add_action('after_setup_theme', 'montheme_setup');
 
+//------------------------------------------------------------------------------------------
 // Définir la zone de widgets
-function descodeuses_init_widgets() {
+//------------------------------------------------------------------------------------------
+function montheme_init_widgets() {
     # Zone de widget 1
       register_sidebar(
           array(
@@ -90,4 +97,32 @@ function descodeuses_init_widgets() {
 }
 
 // Afficher la zone de Widgets
-add_action('widgets_init', 'descodeuses_init_widgets');
+add_action('widgets_init', 'montheme_init_widgets');
+
+
+//------------------------------------------------------------------------------------------
+// Définir la zone de Copywrights
+//------------------------------------------------------------------------------------------
+function montheme_init_copywrights() {
+    # Zone de Copywrights
+      register_sidebar(
+          array(
+              'id' => 'widgets-section-1', //ID de la div 
+              'name' => 'Zone de widgets 1', //nom du widget 
+             'description' => 'Description de la zone de widgets',
+             'before_widget' => '<div class="widget">', //ouvrir la balise <div> pour englober le widget 
+             'after_widget' => '</div>',  //fermer la balise 
+             'before_title' => '<h4 class="widget-title">', //ouvrir <h4> pour le titre du widget
+             'after_title' => '</h4>' //fermer la balise titre
+             )
+          );
+ }
+
+        // Afficher la zone de Copywright
+add_action('widgets_init', 'montheme_init_copywrights');
+
+
+//------------------------------------------------------------------------------------------
+// Accéder à la customisation du template
+//------------------------------------------------------------------------------------------
+require get_template_directory() . '/inc/customizer.php';

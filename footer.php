@@ -62,7 +62,7 @@
 </section>
 <section class="footer-infos container">
   <div class="copyright">
-    <p>© 2020 Descodeuses. Tous droits réservés.</p>
+    <p>© <?php echo get_theme_mod('copywrights_year')?> <?php echo get_theme_mod('copywrights_title_website')?>. <?php echo get_theme_mod('copywrights_text')?>.</p>
   </div>
   <div class="social-medias">
     <nav class="navigation navigation-bottom">
