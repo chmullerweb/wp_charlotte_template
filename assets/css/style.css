@@ -213,6 +213,10 @@ button:-moz-focusring,
 	outline: 1px dotted ButtonText;
 }
 
+button.search-i:hover{
+	background-color: transparent;
+}
+
 fieldset {
 	border: 1px solid #bbb;
 	margin: 0 2px;
