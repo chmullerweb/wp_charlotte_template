@@ -3,60 +3,22 @@
     <!-- Je crée une zone de Widget dynamique dans mon footer -->
   <div class="widgets-section widgets-section-1" id="widgets-section-1">
   <?php 
-      //vérifiez si la zone de widget contient du contenu avec en paramètre l'ID de la zone
-        if(is_active_sidebar('widgets-section-1')) {
-          //la fonction range/affiche le widget dans la zone widget renseignée par son ID
-          dynamic_sidebar('widgets-section-1');
-        } else {
-            ?>
-            <div class="widget">
-            <h4 class="widget-title">Zone de Widget</h4>
-            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
-            </div>
-        <?php    
-        }; 
+        montheme_display_widget('widget-section-1');
     ?>
   </div>
   <div class="widgets-section widgets-section-2">
     <?php 
-        if(is_active_sidebar('widgets-section-2')) {
-          dynamic_sidebar('widgets-section-2');
-        } else {
-            ?>
-            <div class="widget">
-            <h4 class="widget-title">Zone de Widget</h4>
-            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
-            </div>
-        <?php    
-        }; 
+        montheme_display_widget('widgets-section-2');
     ?> 
   </div>
   <div class="widgets-section widgets-section-3">
   <?php 
-        if(is_active_sidebar('widgets-section-3')) {
-          dynamic_sidebar('widgets-section-3');
-        } else {
-            ?>
-            <div class="widget">
-            <h4 class="widget-title">Zone de Widget</h4>
-            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
-            </div>
-        <?php    
-        }; 
-    ?>
+        montheme_display_widget('widgets-section-3');
+  ?>
   </div>
   <div class="widgets-section widgets-section-4">
   <?php 
-        if(is_active_sidebar('widgets-section-4')) {
-          dynamic_sidebar('widgets-section-4');
-        } else {
-            ?>
-            <div class="widget">
-            <h4 class="widget-title">Zone de Widget</h4>
-            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
-            </div>
-        <?php    
-        }; 
+       montheme_display_widget('widgets-section-4');
     ?>
   </div>
 </section>

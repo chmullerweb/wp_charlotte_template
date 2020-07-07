@@ -39,12 +39,13 @@
         </ul>
       </nav>
     </section>
-    <aside class="sidebar">
-      <div class="widget">
-        <h3 class="widget-title">Zone de widgets</h3>
-        <p>Ajout dynamique des titres et contenus des widgets.</p>
-      </div>
-    </aside>
+
+    <?php
+    // J'inclue mon fichier sidebar.php qui contient le widget sidebar
+    get_sidebar();
+    ?>
+
+    
   </main>
 
 <?php get_footer( ); ?>

@@ -43,12 +43,15 @@
     <nav class="navigation navigation-top mobile-navigation">
       <ul>
         <li class="mobile-menu"><i class="fa fa-bars fa-1x"></i>
-          <ul class="sub-navigation">
-            <li><a href="front-page.html">Accueil</a></li>
-            <li><a href="index.html" class="active">Blog</a></li>
-            <li><a href="page.html">Page</a></li>
-            <li><a href="single.html">Article</a></li>
-          </ul>
+        <?php
+          wp_nav_menu(
+            array(
+              'theme_location'  => 'nav_header',
+              'menu_class'      => 'sub-navigation', // liste des classes CSS que WP doit ajouter à la balise <ul> créée
+              'container'       => false
+            )
+          );
+           ?>
         </li>
       </ul>
     </nav>

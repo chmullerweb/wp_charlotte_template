@@ -5,12 +5,11 @@
 
 function montheme_register_assets()
 {
-    wp_register_style('fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Oswald:wght@500;600;700&display=swap');
-    wp_register_script('fontawesome', 'https://kit.fontawesome.com/4e5f136f21.js', [], false, true);
-
-    //affiche le style défini avant celui de WP par défaut
+      //affiche le style défini avant celui de WP par défaut
+    wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Oswald:wght@500;600;700&display=swap');
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', false,'1.1','all');
     wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+    wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/39ca2ad730.js', [], false, true);
     wp_enqueue_script('javascript', 'assets/js/main.js', [], false, true );
 }
 
@@ -89,13 +88,13 @@ function montheme_init_widgets() {
     // Zone de widgets sidebar
     register_sidebar(
         array(
-            'id' => 'sidebar', //fait référence à l'id html de la div où s'affichera le widget
-            'name' => 'Zone de widgets Sidebar', //nom du widget 
+            'id' => 'sidebar', 
+            'name' => 'Zone de widgets Sidebar', 
             'description' => 'Description de la zone de widgets',
-            'before_widget' => '<div class="widget">', //quelle balise html utilisée pour englober le widget dans la zone id. Ici une balise ouvrante.
-            'after_widget' => '</div>',  //ici la balise fermante
-            'before_title' => '<h3 class="widget-title widgettitle">', //on écrit la balise qui englobe le titre du widget
-            'after_title' => '</h3>' //on ferme la balise titre
+            'before_widget' => '<div class="widget">', 
+            'after_widget' => '</div>',  
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>' 
             )
         );
 }
@@ -103,7 +102,21 @@ function montheme_init_widgets() {
 // Afficher la zone de Widgets
 add_action('widgets_init', 'montheme_init_widgets');
 
-
+// Afficher le contenu du widget choisi - sinon si la zone widget est vide, créer un aperçu de la zone. Cette fonction est appelée dans footer.php
+function montheme_display_widget($widgetId){
+    //vérifiez si la zone de widget contient du contenu avec en paramètre l'ID de la zone
+    if(is_active_sidebar($widgetId)) {
+        //la fonction range/affiche le widget dans la zone widget renseignée par son ID
+        dynamic_sidebar($widgetId);
+      } else {
+          ?>
+          <div class="widget">
+          <h4 class="widget-title">Aperçu zone de widget</h4>
+          <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
+          </div>
+<?php
+}
+}
 
 
 //------------------------------------------------------------------------------------------
