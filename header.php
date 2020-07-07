@@ -71,10 +71,10 @@
                 </li>
             </ul>
         </nav>
-        <section class="search-popup">
+        <!-- <section class="search-popup">
             <form class="search-form" action="index.html" method="post">
                 <input type="text" name="search" value="" placeholder="Tapez quelque chose...">
                 <input type="submit" name="submit" value="Rechercher">
             </form>
-        </section>
+        </section> -->
     </header>

@@ -1,51 +1,79 @@
   <?php get_header(); ?>
 
-  
+
   <main class="container site-content">
-    <section class="main-content">
-      <article class="entry post">
-        <header class="entry-header">
-          <img src="./assets/images/joey-thompson-unsplash.jpg" alt="Foule"
-          class="featured-image">
-          <section class="entry-metadata">
-            <section class="entry-data">
-              <h6 class="publish-date">29 juin 2020</h6>
-              <h5 class="entry-category"><a href="#">Actualité</a></h5>
-              <h4 class="comments-number"><i class="fas fa-comment"></i> 3</h4>
-            </section>
-            <h2 class="entry-title">
-              <a href="single.html">Vos meilleurs moments en concert</a>
-            </h2>
-          </section>
-        </header>
-        <section class="entry-content">
-          <p>
-            Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deseru mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-            do eiusmod tempor incididunt…
-          </p>
-        </section>
-        <footer class="entry-footer">
-          <div class="read-more">
-            <a href="single.html">Lire la suite</a>
-          </div>
-        </footer>
-      </article>
-      <nav class="navigation pagination">
-        <ul>
-          <li><a href="#"><i class="fas fa-arrow-left"></i> Précédent</a></li>
-          <li><a href="#">Suivant <i class="fas fa-arrow-right"></i></a></li>
-        </ul>
-      </nav>
-    </section>
+      <section class="main-content">
+          <!-- On vérifie si des articles sont publiés puis on boucle la liste entière -->
+          <?php if (have_posts()) : ?>
+              <?php while (have_posts()) : the_post(); ?>
+                  <!-- chaque article prend le template suivant : -->
+                  <article class="entry post">
+                      <header class="entry-header">
+                          <!-- affiche la vignette de l'article si elle existe... -->
+                          <?php if (has_post_thumbnail()) : ?>
+                              <!-- ...dans une balise <img> qui prend en paramètre $size, $attribut['class', 'title'] -->
+                              <?php the_post_thumbnail('full', ['class' => 'featured-image', 'title' => 'Vignette']); ?>
+                          <?php endif; ?>
+                          <section class="entry-metadata">
+                              <section class="entry-data">
+                                  <!-- affiche la date de publication de l'article -->
+                                  <h6 class="publish-date"><?php the_time('d M Y'); ?></h6>
+                                  <!-- affiche les catégories de l'article -->
+                                  <?php
+                                    // récupérer toutes les catégories dans une tableau $categories grâce à une fonction WP get_the_category()
+                                    $categories = get_the_category();
+                                    $separator = " ";
+                                    $output = '';
 
-    <?php
-    // J'inclue mon fichier sidebar.php qui contient le widget sidebar
-    get_sidebar();
-    ?>
+                                    if (isset($categories)) {
+                                        // chaque catégorie du tableau s'affiche selon le layout retourné dans $output
+                                        foreach ($categories as $category) {
+                                            $output .= '<h5 class="entry-category"><a href="' . get_category_link($category
+                                                ->term_id) . '">' . $category->cat_name . '</a></h5>';
+                                        }
+                                    }
+                                    // on affiche le return $output espacé selon $separator
+                                    echo trim($output, $separator);
+                                    ?>
 
-    
+                                  <!-- on affiche le nombre de commentaire --> 
+                                  <h4 class="comments-number"><i class="fas fa-comment"></i><?php comments_number( ' 0', ' 1', ' %');?></h4>
+                              </section>
+                              <h2 class="entry-title">
+                                  <a href="single.html">Vos meilleurs moments en concert</a>
+                              </h2>
+                          </section>
+                      </header>
+                      <section class="entry-content">
+                          <p>
+                              Excepteur sint occaecat cupidatat non proident,
+                              sunt in culpa qui officia deseru mollit anim id est laborum.
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                              do eiusmod tempor incididunt…
+                          </p>
+                      </section>
+                      <footer class="entry-footer">
+                          <div class="read-more">
+                              <a href="single.html">Lire la suite</a>
+                          </div>
+                      </footer>
+                  </article>
+          <?php endwhile;
+            endif; ?>
+          <nav class="navigation pagination">
+              <ul>
+                  <li><a href="#"><i class="fas fa-arrow-left"></i> Précédent</a></li>
+                  <li><a href="#">Suivant <i class="fas fa-arrow-right"></i></a></li>
+              </ul>
+          </nav>
+      </section>
+
+      <?php
+        // J'inclue mon fichier sidebar.php qui contient le widget sidebar
+        get_sidebar();
+        ?>
+
+
   </main>
 
-<?php get_footer( ); ?>
+  <?php get_footer(); ?>
