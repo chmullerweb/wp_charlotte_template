@@ -1213,6 +1213,19 @@ a.no_bb, .entry-content a{
 	text-decoration: none;
 }
 
+.nav-links{
+	display: flex;
+	justify-content: space-between;
+}
+	
+.nav-links .page-numbers{
+	display:none;
+}
+
+.nav-links .next, .nav-links .prev{
+	display: inline;
+}
+
 .navigation-blog a {
   color: var(--color-background);
 }
