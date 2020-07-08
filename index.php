@@ -12,8 +12,12 @@
                           <!-- affiche la vignette de l'article si elle existe... -->
                           <?php if (has_post_thumbnail()) : ?>
                               <!-- ...dans une balise <img> qui prend en paramètre $size, $attribut['class', 'title'] -->
-                              <?php the_post_thumbnail('full', ['class' => 'featured-image', 'title' => 'Vignette']); ?>
-                          <?php endif; ?>
+                              <?php the_post_thumbnail('full', [
+                                  'class' => 'featured-image',
+                                  'title' => $thumbnail_title,
+                                    'alt' => $thumbnail_alt]);
+                              endif;
+                              ?>
                           <section class="entry-metadata">
                               <section class="entry-data">
                                   <!-- affiche la date de publication de l'article -->

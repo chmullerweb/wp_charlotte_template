@@ -30,56 +30,47 @@
                             echo trim($output, $separator);
                             ?>
 
-                            <h4 class="comments-number"><i class="fas fa-comment"></i> 3 commenatires</h4>
+                            <h4 class="comments-number"><i class="fas fa-comment"></i>
+                                <?php comments_number('pas de commentaire', 'un commentaire', '% commentaires'); ?></h4>
                         </section>
-                        <h2 class="entry-title">Vos meilleurs moments en concert</h2>
+                        <h2 class="entry-title"><?php the_title(); ?></h2>
                     </section>
-                    <img src="./assets/images/joey-thompson-unsplash.jpg" alt="Foule" class="featured-image">
+                    <?php
+                    if (has_post_thumbnail()) {
+                        $thumbnail_id = get_post_thumbnail_id();
+                        $thumbnail_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                        $thumbnail_title = get_the_title($thumbnail_id);
+                        the_post_thumbnail('full', [
+                            'class' => 'featured-image',
+                            'title' => $thumbnail_title,
+                            'alt' => $thumbnail_alt
+                        ]);
+                    };
+                    ?>
                 </header>
                 <section class="entry-content">
-                    <p>
-                        Excepteur sint occaecat cupidatat non proident,
-                        sunt in culpa qui officia deseru mollit anim id est laborum.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                        do eiusmod tempor incididunt…
-                    </p>
-
-                    <p>
-                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                        aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem i
-                        psum quia dolor sit amet, consectetur, adipisci velit, sed quia
-                        non numquam eius modi tempora incidunt ut labore et dolore magnam
-                        aliquam quaerat voluptatem.
-                    </p>
-
-                    <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                        quae ab illo inventore veritatis et quasi architecto beatae vitae
-                        dicta sunt explicabo.
-                    </p>
-
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                        nulla pariatur.
-                    </p>
+                    <?php the_content(); ?>
                 </section>
                 <footer class="entry-footer">
                     <section class="author-card">
                         <section class="author-thumbnail">
-                            <img src="./assets/images/logo-rock-band.png" alt="Photo de l'auteur" class="author-picture">
+                            <?php
+                            $user = wp_get_current_user();
+                            if ($user) :
+                            ?>
+                                <img src="<?php echo esc_url(get_avatar_url($user->ID)); ?>" alt="Photo de l'auteur" class="author-picture"/>
+                            <?php endif; ?>
                         </section>
                         <section class="author-metadata">
-                            <h3 class="author-meta-name">Ada Lovelace</h3>
+                            <h3 class="author-meta-name"><?php the_author(); ?></h3>
                             <p class="author-meta-description">
-                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                                aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                                voluptatem sequi nesciunt.
+                                <?php
+                                if (the_author_meta('user_description')) {
+                                    echo get_the_author_meta('user_description');
+                                } else {
+                                    echo 'Cet·te auteur·e n\'a pas encore renseigné sa biographie';
+                                };
+                                ?>
                             </p>
                         </section>
                     </section>
