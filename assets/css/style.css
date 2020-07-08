@@ -1209,7 +1209,7 @@ body {
     width: 100%;
 }
 
-a.no_bb, .entry-content a{
+a.no_bb, .entry-content a, .menu-item a, .nav-links div a{
 	text-decoration: none;
 }
 
@@ -1315,7 +1315,11 @@ section.comments {
   width: 100%;
 }
 
-.comment-form label {
+.comment-form-url {
+	display : none;
+  }
+
+  .comment-form label {
 	text-align: left;
 }
 

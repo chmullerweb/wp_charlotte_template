@@ -54,10 +54,14 @@
                 <footer class="entry-footer">
                     <section class="author-card">
                         <section class="author-thumbnail">
-                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 96, 'retro', 'Photo de l\'auteur', ['class' => 'author-picture'] );?>
+                            <?php
+                            // Récupérer la photo de l'auteur
+                            echo get_avatar( get_the_author_meta( 'ID' ), 96, 'retro', 'Photo de l\'auteur', ['class' => 'author-picture'] );?>
                         </section>
                         <section class="author-metadata">
+                            <!-- Récupérer le nom de l'auteur -->
                             <h3 class="author-meta-name"><?php the_author(); ?></h3>
+                            <!-- Récupérer la biographie de l'auteur -->
                             <p class="author-meta-description">
                                 <?php
                                 if (the_author_meta('user_description')) {
@@ -71,28 +75,17 @@
                     </section>
                     <nav class="navigation pagination entry-pagination">
                     <?php 
+                    //Afficher la pagination avec le nom des articles précédent ou suivant
                         the_post_navigation(
                             array(
                                 'prev_text' => '<i class="fas fa-arrow-left"></i> %title',
                                 'next_text' => '%title <i class="fas fa-arrow-right"></i>'
                                 )
-                        )
+                            )
                     ?> 
                     </nav>
-                    <section class="comments">
-                        <h3 class="comments-title">3 commentaires pour "Vos meilleurs moments en concert"</h3>
-                        <p>Ici : liste des commentaires de l'article</p>
-                        <h3 class="comments-title">Laisser un commentaire</h3>
-                        <form class="comment-form" action="index.html" method="post">
-                            <label for="name">Nom</label>
-                            <input type="text" name="name" required>
-                            <label for="email">E-mail</label>
-                            <input type="email" name="email" required>
-                            <label for="comment">Commentaire</label>
-                            <input type="textarea" rows="10" cols="80" name="comment" required>
-                            <input type="submit" name="submit" value="Envoyer">
-                        </form>
-                    </section>
+                    <!-- Inclure le fichier template comments.php -->
+                    <?php comments_template();?>
                 </footer>
             </article>
     <?php endwhile;
