@@ -1046,7 +1046,7 @@ body {
 
 .author-picture {
 	height: auto;
-	width: 100%;
+	width: 10rem;
 	border-radius: 1rem;
 	background: var(--color-background);
 }

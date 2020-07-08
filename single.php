@@ -54,12 +54,7 @@
                 <footer class="entry-footer">
                     <section class="author-card">
                         <section class="author-thumbnail">
-                            <?php
-                            $user = wp_get_current_user();
-                            if ($user) :
-                            ?>
-                                <img src="<?php echo esc_url(get_avatar_url($user->ID)); ?>" alt="Photo de l'auteur" class="author-picture"/>
-                            <?php endif; ?>
+                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 96, 'retro', 'Photo de l\'auteur', ['class' => 'author-picture'] );?>
                         </section>
                         <section class="author-metadata">
                             <h3 class="author-meta-name"><?php the_author(); ?></h3>
@@ -75,10 +70,14 @@
                         </section>
                     </section>
                     <nav class="navigation pagination entry-pagination">
-                        <ul>
-                            <li><a href="#"><i class="fas fa-arrow-left"></i> Nos 5 meilleurs souvenirs en concert</a></li>
-                            <li><a href="#">Comment bien préparer un concert en 3 étapes<i class="fas fa-arrow-right"></i></a></li>
-                        </ul>
+                    <?php 
+                        the_post_navigation(
+                            array(
+                                'prev_text' => '<i class="fas fa-arrow-left"></i> %title',
+                                'next_text' => '%title <i class="fas fa-arrow-right"></i>'
+                                )
+                        )
+                    ?> 
                     </nav>
                     <section class="comments">
                         <h3 class="comments-title">3 commentaires pour "Vos meilleurs moments en concert"</h3>
