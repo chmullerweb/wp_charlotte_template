@@ -149,3 +149,9 @@ function add_field_dropdown_pages( $page_id, $setting ) {
     return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
 
   }
+
+//Fonction pour retourner la taille du texte
+function define_text_size (){
+    $size = get_theme_mod('homepage_cover_title_size');
+    return 'font-size:' . $size . 'px';
+}

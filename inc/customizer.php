@@ -228,6 +228,25 @@ function montheme_customize_register($wp_customize)
 
     );
 
+    $wp_customize->add_setting(
+        'homepage_cover_title_size',
+        array(
+            'default' => '90', 
+            'type' => 'theme_mod'
+        )
+    );
+
+    $wp_customize->add_control(
+        'homepage_cover_title_size',
+        array(
+            'label' => 'Taille du titre principal', 
+            'description' => 'Taille du texte du titre principal',
+            'section' => 'homepage_cover_text',
+            'setting' => 'homepage_cover_title_size',
+            'type' => 'number'
+        )
+    );
+
     //La sous-section pour le bouton en couverture dans la section homepage_cover_text
     $wp_customize->add_setting(
         'cover_button_text',

@@ -2,7 +2,7 @@
 
 <!-- Je rend la cover dynamique : image, titre principal et bouton -->
   <section class="page-header front-page-header" style="background-image:url(<?php echo get_theme_mod('cover_image');?>)">
-    <h1 class="page-title"><?php echo get_theme_mod('homepage_cover_title');?></h1>
+    <h1 class="page-title" style="font-size:<?php echo get_theme_mod('homepage_cover_title_size'); ?>px"><?php echo get_theme_mod('homepage_cover_title');?></h1>
     <a href="<?php echo get_theme_mod('cover_button_url'); ?>">
       <button type="button" class="call-to-action <?php echo get_theme_mod('cover_button_style'); ?>"><?php echo get_theme_mod('cover_button_text'); ?>
       </button>
