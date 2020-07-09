@@ -18,7 +18,7 @@
         <p class="custom-content">
           <?php echo get_theme_mod('presentation_intro_text'); ?>
         </p>
-        <a href="<?php echo get_theme_mod('presentation_button_url'); ?>">
+        <a href="<?php echo get_permalink(get_theme_mod('presentation_button_url')); ?>">
           <button type="button" class="call-to-action <?php echo get_theme_mod('presentation_button_style'); ?>">En savoir plus</button>
         </a>
         </div>

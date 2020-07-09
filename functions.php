@@ -134,7 +134,18 @@ add_action('widgets_init', 'montheme_init_widgets');
 
 
 
+
 //------------------------------------------------------------------------------------------
 // Accéder à la customisation du template
 //------------------------------------------------------------------------------------------
 require get_template_directory() . '/inc/customizer.php';
+
+//Fonction pour récupérer la value de la page 
+function add_field_dropdown_pages( $page_id, $setting ) {
+    // Ensure $input is an absolute integer.
+    $page_id = absint( $page_id );
+  
+    // If $page_id is an ID of a published page, return it; otherwise, return the default.
+    return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
+
+  }

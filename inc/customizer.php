@@ -364,25 +364,43 @@ function montheme_customize_register($wp_customize){
                 )
             );
             
+            // $wp_customize->add_setting(
+            //     'presentation_button_url',
+            //     array(
+            //         'default' => '', 
+            //         'type' => 'theme_mod'
+            //     )
+            // );
+            
+            //   $wp_customize->add_control(
+            //     'presentation_button_url',
+            //     array(
+            //         'label' => 'Lien de redirection du bouton', 
+            //         'description' => 'Adresse URL de redirection du bouton',
+            //         'section' => 'homepage_presentation_text',
+            //         'setting' => 'presentation_button_url',
+            //         'type' => 'dropdown_pages',
+            //         'default' => 42 
+            //                        )
+            // );
+
+
             $wp_customize->add_setting(
                 'presentation_button_url',
-                array(
-                    'default' => '', 
-                    'type' => 'theme_mod'
-                )
-            );
-            
+                 array(
+                'capability' => 'edit_theme_options',
+                'sanitize_callback' => 'add_field_dropdown_pages',
+              ) );
+              
               $wp_customize->add_control(
                 'presentation_button_url',
-                array(
-                    'label' => 'Lien de redirection du bouton', 
-                    'description' => 'Adresse URL de redirection du bouton',
-                    'section' => 'homepage_presentation_text',
-                    'setting' => 'presentation_button_url',
-                    'type' => 'url'
-                )
-            );
-            
+                 array(
+                'type' => 'dropdown-pages',
+                'section' => 'homepage_presentation_text', // Add a default or your own section
+                'label' => __( 'URL de redirection du bouton' ),
+                'description' => __( 'Sélectionne la page de redirection' ),
+              ) );
+                          
               $wp_customize->add_setting(
                 'presentation_button_style',
                 array(
