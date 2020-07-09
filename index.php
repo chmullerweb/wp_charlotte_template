@@ -75,9 +75,12 @@
       </section>
 
       <?php
+       if(get_theme_mod('show_widget_sidebar', true)) {
         // J'inclue mon fichier sidebar.php qui contient le widget sidebar
         get_sidebar();
-        ?>
+      }
+      ?>
+     
 
 
   </main>

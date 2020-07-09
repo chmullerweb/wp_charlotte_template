@@ -150,8 +150,9 @@ function add_field_dropdown_pages( $page_id, $setting ) {
 
   }
 
-//Fonction pour retourner la taille du texte
-function define_text_size (){
-    $size = get_theme_mod('homepage_cover_title_size');
-    return 'font-size:' . $size . 'px';
-}
+// //Fonction pour retourner la taille du texte
+// function define_text_size (){
+//     $class = 'page-title';
+//     $size = get_theme_mod('homepage_cover_title_size');
+//     return 'font-size:' . $size . 'px';
+// }

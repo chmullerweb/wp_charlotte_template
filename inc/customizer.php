@@ -84,34 +84,41 @@ function montheme_customize_register($wp_customize)
     //Créer une checkbox pour afficher le widget latéral
     //------------------------------------------------------------------------------------------
 
-    //     // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
-    //   // identifiant : 'fp_container_boxy'
-    //   // valeur par défaut : false (booléen)
-    //   // type : 'theme_mod'
-    //   $wp_customize -> add_setting(
-    //     'sidebar_boxy',
-    //       array(
-    //           'default' => 'Oui',
-    //           'type' => 'theme_mod' 
-    //           )
-    //   );
+    $wp_customize->add_panel(
+        'options_widgets', //id du dossier,
+        array(
+            'title' => 'Options des Widgets'
+        )
+    );
 
+    $wp_customize->add_section(
+        'options_widget_sidebar',
+        array(
+            'title' => 'Option du widget latéral', //nom de la section
+            'description' => 'Réglages du widget', // Titre à l'intérieur de la section
+            'panel' => 'options_widgets' //dans quel dossier va s'ajouter la section (donner l'ID)
+        )
+    );
 
-    // // TODO - En autonomie - Ajouter un contrôleur associé au paramètre 'fp_container_boxy'
-    // // libellé : 'Affichage avec effet boxy'
-    // // description : 'Style du conteneur de la page d\'accueil.'
-    // // section : 'fp_container'
-    // // type : case à cocher - Voir doc pour connaître la valeur à passer :
-    // // https://developer.wordpress.org/reference/classes/wp_customize_control/__construct/
-    // $wp_customize -> add_control(
-    //       'sidebar_boxy',
-    //       array(
-    //           'label' => 'Afficher le widget',
-    //           'description' => 'Est-ce que le widget latéral est visible ?',
-    //           'section' => 'sidebar', //section dans laquelle s'afficher 
-    //           'type' => 'checkbox'
-    //       )
-    // );
+        //La sous-section 'Afficher ou non le widget' dans la section options_widget_sidebar 
+          $wp_customize -> add_setting(
+        'show_widget_sidebar',
+          array(
+              'default' => 'true',
+              'type' => 'theme_mod' 
+              )
+      );
+
+    $wp_customize -> add_control(
+          'show_widget_sidebar',
+          array(
+              'label' => 'Afficher le widget latéral',
+              'description' => 'Cocher la case si le widget latéral est visible',
+              'section' => 'options_widget_sidebar', 
+              'settings' => 'show_widget_sidebar',
+              'type' => 'checkbox'
+          )
+    );
 
     //------------------------------------------------------------------------------------------
     //Enregistre un nouveau dossier 'Page d'Accueil' au customizer
