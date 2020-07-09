@@ -126,16 +126,16 @@ function montheme_customize_register($wp_customize){
 
     //La section pour l'image en couverture 
     $wp_customize->add_section(
-        'homepage_cover_image',
+        'homepage_images',
         array(
-            'title' => 'Images de Couverture', 
-            'description' => 'Editer la photo en couverture de la page d\'acceuil', 
+            'title' => 'Images en Homepage', 
+            'description' => 'Editer les images de la page d\'acceuil', 
             'panel' => 'homepage_panel' 
         )
     );
 
     $wp_customize -> add_setting(
-        'banner_image',
+        'cover_image',
         array(
             'default' => get_template_directory() . '/assets/images/alex-bracken-unsplash.jpg',
             'type' => 'theme_mod' 
@@ -145,11 +145,32 @@ function montheme_customize_register($wp_customize){
     $wp_customize -> add_control(
         new WP_Customize_Image_control(
             $wp_customize, 
-            'banner_image',
+            'cover_image',
             array(
                 'label' => 'Image en couverture',
-                'section' => 'homepage_cover_image', 
-                'settings' => 'banner_image'  
+                'section' => 'homepage_images', 
+                'settings' => 'cover_image'  
+            )
+
+        )
+    );
+
+    $wp_customize -> add_setting(
+        'presentation_image_main',
+        array(
+            'default' => get_template_directory() . '/assets/images/yannis-papanastasopoulos-unsplash.jpg',
+            'type' => 'theme_mod' 
+        )
+    );
+
+    $wp_customize -> add_control(
+        new WP_Customize_Image_control(
+            $wp_customize, 
+            'presentation_image_main',
+            array(
+                'label' => 'Image de présentation',
+                'section' => 'homepage_images', 
+                'settings' => 'presentation_image_main'  
             )
 
         )
@@ -185,36 +206,7 @@ function montheme_customize_register($wp_customize){
 
             );
 
-    //La section pour l'image en présentation
-    $wp_customize->add_section(
-        'homepage_presentation_image',
-        array(
-            'title' => 'Images de Présentation', 
-            'description' => 'Editer la photo en présentation de la page d\'acceuil', 
-            'panel' => 'homepage_panel' 
-        )
-    );
-
-    $wp_customize -> add_setting(
-        'presentation_image',
-        array(
-            'default' => get_template_directory() . '/assets/images/yannis-papanastasopoulos-unsplash.jpg',
-            'type' => 'theme_mod' 
-        )
-    );
-
-    $wp_customize -> add_control(
-        new WP_Customize_Image_control(
-            $wp_customize, 
-            'presentation_image',
-            array(
-                'label' => 'Image de présentation',
-                'section' => 'homepage_presentation_image', 
-                'settings' => 'presentation_image'  
-            )
-
-        )
-    );
+    
 
     //La section pour le texte de présentation
     $wp_customize->add_section(

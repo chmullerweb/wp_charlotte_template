@@ -8,11 +8,7 @@
     <meta name="author" content="<?php bloginfo('author'); ?>">
     <title><?php bloginfo('name'); ?></title>
 
-    <!-- J'affiche ma favicon -->
-    <!-- <link rel="shortcut icon" href="<?php get_template_directory() . '/assets/images/favicon.ico';?>" type="image/x-icon"> -->
-    <!-- <link rel="icon" href="<?php get_template_directory() . '/assets/images/favicon.ico';?>" type="image/x-icon">    -->
-
-    <!-- J'appelle la fonction wp_head pour inclure des paramètres d'en-tête WP -->
+      <!-- J'appelle la fonction wp_head pour inclure des paramètres d'en-tête WP -->
     <?php wp_head(); ?>
 </head>
 

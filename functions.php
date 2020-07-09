@@ -7,16 +7,17 @@ function montheme_register_assets()
 {
     //intégration du framework Bootstrap
     wp_register_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css');
-    wp_register_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', ['popper', 'jquery'], false, true);
-    wp_register_script('popper', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', [], false, true);
-    //WP utilise un script jquery par défaut. Si je veux le personnaliser, il faut d'abord que "j'efface" la version WP. Attention ! Car certains plugins utilise le jquery WP 
-    wp_deregister_script('jquery');
-    wp_register_script('jquery', 'https://code.jquery.com/jquery-3.5.1.slim.min.js', [], false, true);
+    #### !! Fait buguer le js de Wordpress !!
+    // wp_register_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'), ['popper', 'jquery'], false, true);
+    // wp_register_script('popper', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', [], false, true);
+    // //WP utilise un script jquery par défaut. Si je veux le personnaliser, il faut d'abord que "j'efface" la version WP. Attention ! Car certains plugins utilise le jquery WP 
+    // wp_deregister_script('jquery');
+    // wp_register_script('jquery', 'https://code.jquery.com/jquery-3.5.1.slim.min.js', [], false, true);
 
 
     //affiche le style défini avant celui de WP par défaut
     wp_enqueue_style('bootstrap');
-    wp_enqueue_script('bootstrap');
+    // wp_enqueue_script('bootstrap'); !! Fait buguer le js de Wordpress
     wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Oswald:wght@500;600;700&display=swap');
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', false, '1.1', 'all');
@@ -112,25 +113,25 @@ function montheme_init_widgets()
     );
 }
 
-// Afficher la zone de Widgets
-add_action('widgets_init', 'montheme_init_widgets');
-
-// Afficher le contenu du widget choisi - sinon si la zone widget est vide, créer un aperçu de la zone. Cette fonction est appelée dans footer.php
+// // Afficher le contenu du widget choisi - sinon si la zone widget est vide, créer un aperçu de la zone. Cette fonction est appelée dans footer.php
 function montheme_display_widget($widgetId)
 {
     //vérifiez si la zone de widget contient du contenu avec en paramètre l'ID de la zone
     if (is_active_sidebar($widgetId)) {
         //la fonction range/affiche le widget dans la zone widget renseignée par son ID
+        echo '<div class="the-sidebar">';
         dynamic_sidebar($widgetId);
     } else {
-?>
-        <div class="widget">
-            <h4 class="widget-title">Aperçu zone de widget</h4>
-            <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
-        </div>
-<?php
+         return '<div class="widget">
+             <h4 class="widget-title">Aperçu zone de widget</h4>
+             <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
+         </div>';
     }
 }
+
+// // Afficher la zone de Widgets
+add_action('widgets_init', 'montheme_init_widgets');
+
 
 
 //------------------------------------------------------------------------------------------
