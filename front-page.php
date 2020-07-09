@@ -26,37 +26,33 @@
     <section class="custom-blocks">
       <div class="custom-block">
         <i class="fas fa-birthday-cake fa-3x"></i>
-        <h3 class="custom-title">Concert célébration</h3>
+        <h3 class="custom-title"><?php echo get_theme_mod('homepage_benefits_title_1'); ?></h3>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
+        <?php echo get_theme_mod('homepage_benefits_text_1'); ?>
         </p>
       </div>
       <div class="custom-block">
         <i class="fas fa-music fa-3x"></i>
-        <h3 class="custom-title">L'amour de la musique</h3>
+        <h3 class="custom-title"><?php echo get_theme_mod('homepage_benefits_title_2'); ?></h3>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
+        <?php echo get_theme_mod('homepage_benefits_text_2'); ?>
         </p>
       </div>
       <div class="custom-block">
         <i class="fas fa-ticket-alt fa-3x"></i>
-        <h3 class="custom-title">+3000 tickets en vente</h3>
+        <h3 class="custom-title"><?php echo get_theme_mod('homepage_benefits_title_3'); ?></h3>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
+        <?php echo get_theme_mod('homepage_benefits_text_3'); ?>
         </p>
       </div>
     </section>
-    <section class="custom-section">
+    <section class="custom-section <?php echo get_theme_mod('homepage_quote_style'); ?>">
       <blockquote class="star-quote">
         <p class="quote-content">
-          Ce qui se conçoit bien s'énonce clairement et les mots pour le dire
-          arrivent aisément.
+        <?php echo get_theme_mod('homepage_quote_text'); ?>
         </p>
         <cite class="quote-footer">
-          Boileau
+          <?php echo get_theme_mod('homepage_quote_author'); ?>
         </cite>
       </blockquote>
     </section>

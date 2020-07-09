@@ -959,7 +959,11 @@ body {
 	margin: 3rem auto;
 }
 
-.custom-blocks,
+.custom-blocks{
+	display: flex;
+	flex-wrap: nowrap;
+}
+
 .custom-presentation {
 	display: flex;
 	flex-wrap: wrap;
