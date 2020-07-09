@@ -1,11 +1,12 @@
 <?php get_header(); ?>
 
-  <section class="page-header front-page-header" style="background-image:url(<?php echo get_theme_mod('banner_image');?>)">
+<!-- Je rend la cover dynamique : image, titre principal et bouton -->
+  <section class="page-header front-page-header" style="background-image:url(<?php echo get_theme_mod('cover_image');?>)">
     <h1 class="page-title"><?php echo get_theme_mod('homepage_cover_title');?></h1>
-    <a href="#">
-      <button type="button" class="call-to-action">
-        Réserver mon billet
+    <a href="<?php echo get_theme_mod('cover_button_url'); ?>">
+      <button type="button" class="call-to-action <?php echo get_theme_mod('cover_button_style'); ?>"><?php echo get_theme_mod('cover_button_text'); ?>
       </button>
+      
   </a>
   </section>
   <main class="container front-content">
@@ -13,27 +14,14 @@
       <img src="<?php echo get_theme_mod('presentation_image'); ?>">
       
       <div class="custom-presentation-infos">
-        <h2 class="custom-title"><?php echo get_theme_mod('presentation_title_text');?></h2>
+        <h2 class="custom-title"><?php echo get_theme_mod('presentation_title_text'); ?></h2>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
-
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-          quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo.
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat
-          nulla pariatur.
+          <?php echo get_theme_mod('presentation_intro_text'); ?>
         </p>
-        <a href="page.html">
-          <button type="button" class="call-to-action">En savoir plus</button>
+        <a href="<?php echo get_theme_mod('presentation_button_url'); ?>">
+          <button type="button" class="call-to-action <?php echo get_theme_mod('presentation_button_style'); ?>">En savoir plus</button>
         </a>
-      </div>
+        </div>
     </section>
     <section class="custom-blocks">
       <div class="custom-block">

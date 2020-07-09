@@ -176,6 +176,27 @@ function montheme_customize_register($wp_customize){
         )
     );
 
+    $wp_customize -> add_setting(
+        'icone_col_1',
+        array(
+            'default' => get_template_directory() . '/assets/images/yannis-papanastasopoulos-unsplash.jpg',
+            'type' => 'theme_mod' 
+        )
+    );
+
+    $wp_customize -> add_control(
+        new WP_Customize_Image_control(
+            $wp_customize, 
+            'presentation_image_main',
+            array(
+                'label' => 'Image de présentation',
+                'section' => 'homepage_images', 
+                'settings' => 'presentation_image_main'  
+            )
+
+        )
+    );
+
     //La section pour le texte en couverture
     $wp_customize->add_section(
         'homepage_cover_text',
@@ -206,7 +227,69 @@ function montheme_customize_register($wp_customize){
 
             );
 
-    
+                //La sous-section pour le bouton en couverture dans la section homepage_cover_text
+            $wp_customize->add_setting(
+                'cover_button_text',
+                array(
+                    'default' => 'Réserver un billet', 
+                    'type' => 'theme_mod'
+                )
+            );
+            
+            $wp_customize->add_control(
+                'cover_button_text',
+                array(
+                    'label' => 'Bouton en couverture', 
+                    'description' => 'Texte du bouton',
+                    'section' => 'homepage_cover_text',
+                    'setting' => 'cover_button_text',
+                    'type' => 'text'
+                )
+            );
+            
+            $wp_customize->add_setting(
+                'cover_button_url',
+                array(
+                    'default' => '', 
+                    'type' => 'theme_mod'
+                )
+            );
+            
+              $wp_customize->add_control(
+                'cover_button_url',
+                array(
+                    'label' => 'Lien de redirection du bouton', 
+                    'description' => 'Adresse URL de redirection du bouton',
+                    'section' => 'homepage_cover_text',
+                    'setting' => 'cover_button_url',
+                    'type' => 'url'
+                )
+            );
+            
+              $wp_customize->add_setting(
+                'cover_button_style',
+                array(
+                    'default' => '.btn-style-1', 
+                    'type' => 'theme_mod'
+                )
+            );
+            
+              $wp_customize->add_control(
+                'cover_button_style',
+                array(
+                    'label' => 'Style du bouton', 
+                    'description' => 'Couleur de fond et du texte du bouton',
+                    'section' => 'homepage_cover_text',
+                    'setting' => 'cover_button_style',
+                    'type' => 'radio',
+                    'choices' => array(
+                        'btn-style-1' => 'Noir',
+                        'btn-style-2' => 'Transparent',
+                        'btn-style-3' => 'Bordure bleu'
+                                )
+                )
+            );
+
 
     //La section pour le texte de présentation
     $wp_customize->add_section(
@@ -217,7 +300,7 @@ function montheme_customize_register($wp_customize){
             'panel' => 'homepage_panel' 
         )
     );
-
+        //La sous-section Titre du texte de présentation
     $wp_customize -> add_setting(
         'presentation_title_text',
         array(
@@ -230,7 +313,7 @@ function montheme_customize_register($wp_customize){
             'presentation_title_text',
             array(
                 'label' => 'Titre de présentation',
-                'description' => 'Ecrire le texte de présentation',
+                'description' => 'Ecrire le titre de présentation',
                 'section' => 'homepage_presentation_text', 
                 'settings' => 'presentation_title_text',
                 'type' => 'text'  
@@ -238,6 +321,91 @@ function montheme_customize_register($wp_customize){
 
             );
     
+            //La sous-section Introduction du texte de présentation
+    $wp_customize -> add_setting(
+        'presentation_intro_text',
+        array(
+            'default' => 'Chocolate bar sugar plum sweet roll. Brownie jelly-o pudding jelly beans jujubes oat cake jelly lollipop chupa chups. Cupcake icing jelly-o carrot cake. Biscuit candy canes cake brownie lollipop.
+            Gummi bears chocolate pudding sweet toffee cake. Tiramisu pudding sugar plum marzipan macaroon gummies. Donut croissant jujubes cotton candy fruitcake. Sesame snaps sesame snaps tart jujubes soufflé cake. Jelly beans wafer ice cream cookie bonbon chocolate cake oat cake bear claw jujubes. Fruitcake bear claw chocolate bar jelly beans donut muffin soufflé cheesecake.
+            Brownie pie cake tootsie roll cookie. Jelly beans marshmallow marzipan gummi bears bonbon.',
+            'type' => 'theme_mod' 
+        )
+    );
+
+    $wp_customize -> add_control(
+            'presentation_intro_text',
+            array(
+                'label' => 'Texte de présentation',
+                'description' => 'Ecrire le texte de présentation',
+                'section' => 'homepage_presentation_text', 
+                'settings' => 'presentation_intro_text',
+                'type' => 'textarea'  
+            )
+
+            );
+
+            //La sous-section pour le bouton dans la section homepage_presentation_text
+            $wp_customize->add_setting(
+                'presentation_button_text',
+                array(
+                    'default' => 'En savoir plus', 
+                    'type' => 'theme_mod'
+                )
+            );
+            
+            $wp_customize->add_control(
+                'presentation_button_text',
+                array(
+                    'label' => 'Bouton', 
+                    'description' => 'Texte du bouton',
+                    'section' => 'homepage_presentation_text',
+                    'setting' => 'presentation_button_text',
+                    'type' => 'text'
+                )
+            );
+            
+            $wp_customize->add_setting(
+                'presentation_button_url',
+                array(
+                    'default' => '', 
+                    'type' => 'theme_mod'
+                )
+            );
+            
+              $wp_customize->add_control(
+                'presentation_button_url',
+                array(
+                    'label' => 'Lien de redirection du bouton', 
+                    'description' => 'Adresse URL de redirection du bouton',
+                    'section' => 'homepage_presentation_text',
+                    'setting' => 'presentation_button_url',
+                    'type' => 'url'
+                )
+            );
+            
+              $wp_customize->add_setting(
+                'presentation_button_style',
+                array(
+                    'default' => 'btn-style-1', 
+                    'type' => 'theme_mod'
+                )
+            );
+            
+              $wp_customize->add_control(
+                'presentation_button_style',
+                array(
+                    'label' => 'Style du bouton', 
+                    'description' => 'Couleur de fond et du texte du bouton',
+                    'section' => 'homepage_presentation_text',
+                    'setting' => 'presentation_button_style',
+                    'type' => 'radio',
+                    'choices' => array(
+                                'btn-style-1' => 'Noir',
+                                'btn-style-2' => 'Transparent',
+                                'btn-style-3' => 'Bordure bleu'
+                                )
+                )
+            );
 
 };
 
