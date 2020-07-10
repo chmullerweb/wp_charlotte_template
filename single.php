@@ -88,8 +88,14 @@
                     <?php comments_template();?>
                 </footer>
             </article>
-    <?php endwhile;
-    endif; ?>
+    <?php
+    endwhile;
+    endif; 
+       if(get_theme_mod('show_widget_sidebar', true)) {
+        // J'inclue mon fichier sidebar.php qui contient le widget sidebar
+        get_sidebar();
+      }
+      ?>
 </main>
 
 <?php get_footer(); ?>

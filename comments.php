@@ -1,6 +1,6 @@
 <section class="comments">
             <h3 class="comments-title">
-                <?php comments_number( 'pas de commentaire', 'un commentaire', '% commentaires');?>
+                <?php comments_number( 'Pas de commentaire', '1 commentaire', '% commentaires');?>
                 pour
                 "<?php the_title(); ?>"
             </h3>
