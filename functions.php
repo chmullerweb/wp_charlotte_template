@@ -31,7 +31,7 @@ add_action('wp_enqueue_scripts', 'montheme_register_assets');
 // Définir des fonctionnalités personnalisées et supportées par mon thème
 # Menu Header
 # Menu Footer
-# Logo
+# Logo 
 //------------------------------------------------------------------------------------------
 function montheme_setup()
 {
@@ -43,9 +43,40 @@ function montheme_setup()
     //je configure le menu header et footer en lui donnant un nom et une description
     register_nav_menu('nav_header', 'En tête du menu');
     register_nav_menu('nav_footer', 'Menu en pied de page');
+
+    //mon thème "supporte" Woocommerce >> Commenté car cela fait sauter la mise en page
+    //add_theme_support( 'woocommerce' );
+
 }
 
 add_action('after_setup_theme', 'montheme_setup');
+
+if (class_exists('WooCommerce')) {
+function custom_mini_cart() { 
+?>
+    <a href="<?php echo home_url() . '/panier/'; ?>" class="dropdown-back" data-toggle="dropdown">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    <div class="basket-item-count" style="display: inline;">
+    <span class="cart-items-count count">
+        <?php
+            echo WC()->cart->get_cart_contents_count();
+        ?>
+        </span>
+    </div>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-mini-cart">
+        <li>
+            <div class="widget_shopping_cart_content">
+                  <?php woocommerce_mini_cart(); ?>
+            </div>
+        </li>
+    </ul>
+    <?php        
+
+      }
+add_shortcode( '[custom-techno-mini-cart]', 'custom_mini_cart' );
+}
+
 
 //------------------------------------------------------------------------------------------
 // Définir la zone de widgets

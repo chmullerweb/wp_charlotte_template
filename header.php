@@ -63,12 +63,11 @@
                 <a href="#"><i class="fas fa-search"></i>
                 </a>
                 </li>
+                <?php if (class_exists('WooCommerce')) :?>
                 <li>
-                    <a href="#">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="count cart-counter">0</span>
-                    </a>
+                    <?php custom_mini_cart(); ?>
                 </li>
+                <?php endif; ?>
             </ul>
         </nav>
         <section class="search-popup">
