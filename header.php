@@ -59,10 +59,6 @@
         </nav>
         <nav class="navigation navigation-aside">
             <ul>
-                <li>
-                    <!-- Insérer une barre de recherche selon le template searchform_bootstrapp.php -->
-                    <!-- <?php echo get_search_form(); ?> -->
-                </li>
                 <li class="search-toggle">
                 <a href="#"><i class="fas fa-search"></i>
                 </a>
@@ -77,9 +73,5 @@
         </nav>
         <section class="search-popup">
         <?php echo get_search_form(); ?>
-            <!-- <form class="search-form" action="index.html" method="post">
-                <input type="text" name="search" value="" placeholder="Tapez quelque chose...">
-                <input type="submit" name="submit" value="Rechercher">
-            </form> -->
         </section>
     </header>
