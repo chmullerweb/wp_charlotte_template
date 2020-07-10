@@ -51,7 +51,7 @@
                       </header>
                       <section class="entry-content">
                           <!-- on affiche un extrait du contenu de l'article -->
-                          <?php the_content(''); ?>
+                          <?php the_excerpt(); ?>
                       </section>
                       <footer class="entry-footer">
                           <div class="read-more">
