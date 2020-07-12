@@ -35,7 +35,7 @@ Fonctionnalitées du site et mise en oeuvre
 - En-tête
 - Afficher un logo personnalisé ou titre du site si non défini
 - Menu principal
-- Pied de page
+- Pied de page : 
   -- 4 zones de widgets
 --Pouvoir changer le texte du copyright ("© 2020 Descodeuses. Tous droits réservés").
 - Menus
@@ -58,9 +58,12 @@ Fonctionnalitées du site et mise en oeuvre
  -- lier l'icône panier dans header.php à WooCommerce
  -- ne l'afficher que si WooCommerce est installé 
 -- mettre à jour le nombre d'article du panier
+- Intégrer via une fonction WP les fichiers de style CSS dans notre thème 
 
 ## Mes aides :  
-- https://premium.wpmudev.org/blog/how-to-localize-a-wordpress-theme-and-make-it-translation-ready/
 - https://stackoverflow.com/questions/50033227/is-there-any-way-to-display-the-woocommerce-mini-cart-on-my-wordpress-site
 - https://iftekhar.net/blog/how-to-check-if-woocommerce-is-active-or-not-in-wordpress/
 - https://teamtreehouse.com/community/use-echo-homeurl-instead-of-bloginfourl-according-to-wordpress-reference
+
+## Enoncé : 
+- https://github.com/GenevieveMasioni/descodeuses-projet-final
