@@ -11,7 +11,7 @@
   </section>
   <main class="container front-content">
     <section class="custom-presentation">
-      <img src="<?php echo get_theme_mod('presentation_image'); ?>">
+      <img src="<?php echo get_theme_mod('presentation_image_main'); ?>">
       
       <div class="custom-presentation-infos">
         <h2 class="custom-title"><?php echo get_theme_mod('presentation_title_text'); ?></h2>

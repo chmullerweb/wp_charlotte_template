@@ -5,24 +5,12 @@
 
 function montheme_register_assets()
 {
-    //intégration du framework Bootstrap
-    wp_register_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css');
-    #### !! Fait buguer le js de Wordpress !!
-    // wp_register_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'), ['popper', 'jquery'], false, true);
-    // wp_register_script('popper', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', [], false, true);
-    // //WP utilise un script jquery par défaut. Si je veux le personnaliser, il faut d'abord que "j'efface" la version WP. Attention ! Car certains plugins utilise le jquery WP 
-    // wp_deregister_script('jquery');
-    // wp_register_script('jquery', 'https://code.jquery.com/jquery-3.5.1.slim.min.js', [], false, true);
-
-
-    //affiche le style défini avant celui de WP par défaut
-    wp_enqueue_style('bootstrap');
-    // wp_enqueue_script('bootstrap'); !! Fait buguer le js de Wordpress
+     //affiche le style défini avant celui de WP par défaut
     wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Oswald:wght@500;600;700&display=swap');
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', false, '1.1', 'all');
     wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/39ca2ad730.js', [], false, true);
-    wp_enqueue_script('javascript', get_template_directory_uri() .'/assets/js/main.js', [], false, true);
+    wp_enqueue_script('javascript', get_template_directory_uri() . '/assets/js/main.js', [], false, true);
 }
 
 add_action('wp_enqueue_scripts', 'montheme_register_assets');
@@ -32,6 +20,7 @@ add_action('wp_enqueue_scripts', 'montheme_register_assets');
 # Menu Header
 # Menu Footer
 # Logo 
+# Panier Woocommerce
 //------------------------------------------------------------------------------------------
 function montheme_setup()
 {
@@ -47,35 +36,38 @@ function montheme_setup()
     //mon thème "supporte" Woocommerce >> Commenté car cela fait sauter la mise en page
     //add_theme_support( 'woocommerce' );
 
+    //mon thème "supporte" le panier Woocommerce
+    if (class_exists('WooCommerce')) {
+        function custom_mini_cart()
+        {
+?>
+            <a href="<?php echo home_url() . '/panier/'; ?>" class="dropdown-back" data-toggle="dropdown">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <div class="basket-item-count" style="display: inline;">
+                    <span class="cart-items-count count">
+                        <?php
+                        echo WC()->cart->get_cart_contents_count();
+                        ?>
+                    </span>
+                </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-mini-cart">
+                <li>
+                    <div class="widget_shopping_cart_content">
+                        <?php woocommerce_mini_cart(); ?>
+                    </div>
+                </li>
+            </ul>
+<?php
+
+        }
+        add_shortcode('[custom-techno-mini-cart]', 'custom_mini_cart');
+    };
 }
 
 add_action('after_setup_theme', 'montheme_setup');
 
-if (class_exists('WooCommerce')) {
-function custom_mini_cart() { 
-?>
-    <a href="<?php echo home_url() . '/panier/'; ?>" class="dropdown-back" data-toggle="dropdown">
-    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-    <div class="basket-item-count" style="display: inline;">
-    <span class="cart-items-count count">
-        <?php
-            echo WC()->cart->get_cart_contents_count();
-        ?>
-        </span>
-    </div>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-mini-cart">
-        <li>
-            <div class="widget_shopping_cart_content">
-                  <?php woocommerce_mini_cart(); ?>
-            </div>
-        </li>
-    </ul>
-    <?php        
 
-      }
-add_shortcode( '[custom-techno-mini-cart]', 'custom_mini_cart' );
-}
 
 
 //------------------------------------------------------------------------------------------
@@ -153,7 +145,7 @@ function montheme_display_widget($widgetId)
         echo '<div class="the-sidebar">';
         dynamic_sidebar($widgetId);
     } else {
-         return '<div class="widget">
+        return '<div class="widget">
              <h4 class="widget-title">Aperçu zone de widget</h4>
              <p>Croissant jelly chocolate cake fruitcake lollipop cake. Croissant brownie jelly beans cupcake. Donut gummies gummi bears marzipan</p>
          </div>';
@@ -172,14 +164,14 @@ add_action('widgets_init', 'montheme_init_widgets');
 require get_template_directory() . '/inc/customizer.php';
 
 //Fonction pour récupérer la value de la page 
-function add_field_dropdown_pages( $page_id, $setting ) {
+function add_field_dropdown_pages($page_id, $setting)
+{
     // Ensure $input is an absolute integer.
-    $page_id = absint( $page_id );
-  
-    // If $page_id is an ID of a published page, return it; otherwise, return the default.
-    return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
+    $page_id = absint($page_id);
 
-  }
+    // If $page_id is an ID of a published page, return it; otherwise, return the default.
+    return ('publish' == get_post_status($page_id) ? $page_id : $setting->default);
+}
 
 // //Fonction pour retourner la taille du texte
 // function define_text_size (){
@@ -187,3 +179,9 @@ function add_field_dropdown_pages( $page_id, $setting ) {
 //     $size = get_theme_mod('homepage_cover_title_size');
 //     return 'font-size:' . $size . 'px';
 // }
+
+
+//------------------------------------------------------------------------------------------
+// Inclure la traduction au thème
+//------------------------------------------------------------------------------------------
+load_theme_textdomain('WP Charlotte Template', get_template_directory() . '/languages');

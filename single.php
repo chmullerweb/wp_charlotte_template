@@ -33,7 +33,7 @@
                             <h4 class="comments-number"><i class="fas fa-comment"></i>
                                 <?php comments_number('pas de commentaire', 'un commentaire', '% commentaires'); ?></h4>
                         </section>
-                        <h2 class="entry-title"><?php the_title(); ?></h2>
+                        <h2 class="entry-title"><?php __(the_title());?></h2>
                     </section>
                     <?php
                     if (has_post_thumbnail()) {

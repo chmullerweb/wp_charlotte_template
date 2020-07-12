@@ -3,7 +3,7 @@
     <!-- Je crée une zone de Widget dynamique dans mon footer -->
     <div class="widgets-section widgets-section-1" id="widgets-section-1">
       <?php
-      echo montheme_display_widget('widget-section-1');
+      echo montheme_display_widget('widgets-section-1');
       ?>
     </div>
     <div class="widgets-section widgets-section-2" id="widgets-section-2">
