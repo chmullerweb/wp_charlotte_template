@@ -1,33 +1,33 @@
 <section class="comments">
-            <h3 class="comments-title">
-                <?php comments_number( 'Pas de commentaire', '1 commentaire', '% commentaires');?>
-                pour
-                "<?php the_title(); ?>"
-            </h3>
-            <p>Tous les commentaires de l'article</p>
-<?php
-wp_list_comments(); // Afficher la liste des commentaires et leur contenu
+    <h3 class="comments-title">
+        <?php comments_number('Pas de commentaire', '1 commentaire', '% commentaires'); ?>
+        pour
+        "<?php the_title(); ?>"
+    </h3>
+    <p>Tous les commentaires de l'article</p>
+    <?php
+    wp_list_comments(); // Afficher la liste des commentaires et leur contenu
 
-//Pagination des commentaires. Visible si x nb de commentaires postés. Nb défini dans Réglages > Commentaires > Cocher Diviser les commenaites > nb de commentaires / page
-echo '<div class="comments-pagination">';
-paginate_comments_links(
-    array(
-        'prev_text'  => '<i class="fas fa-arrow-left"></i> Précédent',
-        'next_text' => 'Suivant <i class="fas fa-arrow-right"></i>'
-    )
-);
-echo '</div>';
-
-comment_form(
-    array( 
-        'class_form' => 'comment-form',
-        'title_reply' => 'Laisser un commentaire',  //titre qui s'affiche au-dessus d'un formulaire
-        'label_submit' => 'Envoyer' //contenu du bouton pour valider son commentaire 
+    //Pagination des commentaires. Visible si x nb de commentaires postés. Nb défini dans Réglages > Commentaires > Cocher Diviser les commenaites > nb de commentaires / page
+    echo '<div class="comments-pagination">';
+    paginate_comments_links(
+        array(
+            'prev_text'  => '<i class="fas fa-arrow-left"></i> Précédent',
+            'next_text' => 'Suivant <i class="fas fa-arrow-right"></i>'
         )
-);
+    );
+    echo '</div>';
+
+    comment_form(
+        array(
+            'class_form' => 'comment-form',
+            'title_reply' => 'Laisser un commentaire',  //titre qui s'affiche au-dessus d'un formulaire
+            'label_submit' => 'Envoyer' //contenu du bouton pour valider son commentaire 
+        )
+    );
 
 
-?>
+    ?>
 
 </section>
 

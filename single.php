@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <main class="container site-content">
     <?php
     //s'il y a un article dans ma bdd alors je rentre dans cette boucle
@@ -33,7 +32,7 @@
                             <h4 class="comments-number"><i class="fas fa-comment"></i>
                                 <?php comments_number('pas de commentaire', 'un commentaire', '% commentaires'); ?></h4>
                         </section>
-                        <h2 class="entry-title"><?php __(the_title());?></h2>
+                        <h2 class="entry-title"><?php __(the_title()); ?></h2>
                     </section>
                     <?php
                     if (has_post_thumbnail()) {
@@ -56,7 +55,7 @@
                         <section class="author-thumbnail">
                             <?php
                             // Récupérer la photo de l'auteur
-                            echo get_avatar( get_the_author_meta( 'ID' ), 96, 'retro', 'Photo de l\'auteur', ['class' => 'author-picture'] );?>
+                            echo get_avatar(get_the_author_meta('ID'), 96, 'retro', 'Photo de l\'auteur', ['class' => 'author-picture']); ?>
                         </section>
                         <section class="author-metadata">
                             <!-- Récupérer le nom de l'auteur -->
@@ -74,28 +73,27 @@
                         </section>
                     </section>
                     <nav class="navigation pagination entry-pagination">
-                    <?php 
-                    //Afficher la pagination avec le nom des articles précédent ou suivant
+                        <?php
+                        //Afficher la pagination avec le nom des articles précédent ou suivant
                         the_post_navigation(
                             array(
                                 'prev_text' => '<i class="fas fa-arrow-left"></i> %title',
                                 'next_text' => '%title <i class="fas fa-arrow-right"></i>'
-                                )
                             )
-                    ?> 
+                        )
+                        ?>
                     </nav>
                     <!-- Inclure le fichier template comments.php -->
-                    <?php comments_template();?>
+                    <?php comments_template(); ?>
                 </footer>
             </article>
     <?php
-    endwhile;
-    endif; 
-       if(get_theme_mod('show_widget_sidebar', true)) {
+        endwhile;
+    endif;
+    if (get_theme_mod('show_widget_sidebar', true)) {
         // J'inclue mon fichier sidebar.php qui contient le widget sidebar
         get_sidebar();
-      }
-      ?>
+    }
+    ?>
 </main>
-
 <?php get_footer(); ?>

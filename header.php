@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-
 <head>
     <!-- Je récupère les infos sur le charset, la description, l'auteur et le nom avec bloginfo -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="description" content="<?php bloginfo('description'); ?>">
     <meta name="author" content="<?php bloginfo('author'); ?>">
     <title><?php bloginfo('name'); ?></title>
-
-      <!-- J'appelle la fonction wp_head pour inclure des paramètres d'en-tête WP -->
+    <!-- J'appelle la fonction wp_head pour inclure des paramètres d'en-tête WP -->
     <?php wp_head(); ?>
 </head>
-
 <!-- J'ajoute la class body_class afin d'afficher la barre de personnalisation -->
-
 <body <?php body_class(); ?>>
-
     <header class="site-header">
         <div class="site-branding">
             <!-- J'affiche un logo s'il existe, sinon j'affiche le nom du site via un <a>. -->
@@ -28,10 +23,8 @@
                 <a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
             <?php } ?>
         </div>
-
         <!-- Je crée une navigation header dynamique avec wp_nav_menu -->
         <nav class="navigation navigation-top desktop-navigation">
-
             <?php
             //La zone de menu et son contenu à récupérer (toujours nommer la clé 'theme_location')
             wp_nav_menu(
@@ -60,17 +53,17 @@
         <nav class="navigation navigation-aside">
             <ul>
                 <li class="search-toggle">
-                <a href="#"><i class="fas fa-search"></i>
-                </a>
+                    <a href="#"><i class="fas fa-search"></i>
+                    </a>
                 </li>
-                <?php if (class_exists('WooCommerce')) :?>
-                <li>
-                    <?php custom_mini_cart(); ?>
-                </li>
+                <?php if (class_exists('WooCommerce')) : ?>
+                    <li>
+                        <?php custom_mini_cart(); ?>
+                    </li>
                 <?php endif; ?>
             </ul>
         </nav>
         <section class="search-popup">
-        <?php echo get_search_form(); ?>
+            <?php echo get_search_form(); ?>
         </section>
     </header>

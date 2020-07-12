@@ -100,24 +100,24 @@ function montheme_customize_register($wp_customize)
         )
     );
 
-        //La sous-section 'Afficher ou non le widget' dans la section options_widget_sidebar 
-          $wp_customize -> add_setting(
+    //La sous-section 'Afficher ou non le widget' dans la section options_widget_sidebar 
+    $wp_customize->add_setting(
         'show_widget_sidebar',
-          array(
-              'default' => 'true',
-              'type' => 'theme_mod' 
-              )
-      );
+        array(
+            'default' => 'true',
+            'type' => 'theme_mod'
+        )
+    );
 
-    $wp_customize -> add_control(
-          'show_widget_sidebar',
-          array(
-              'label' => 'Afficher le widget latéral',
-              'description' => 'Cocher la case si le widget latéral est visible',
-              'section' => 'options_widget_sidebar', 
-              'settings' => 'show_widget_sidebar',
-              'type' => 'checkbox'
-          )
+    $wp_customize->add_control(
+        'show_widget_sidebar',
+        array(
+            'label' => 'Afficher le widget latéral',
+            'description' => 'Cocher la case si le widget latéral est visible',
+            'section' => 'options_widget_sidebar',
+            'settings' => 'show_widget_sidebar',
+            'type' => 'checkbox'
+        )
     );
 
     //------------------------------------------------------------------------------------------
@@ -238,7 +238,7 @@ function montheme_customize_register($wp_customize)
     $wp_customize->add_setting(
         'homepage_cover_title_size',
         array(
-            'default' => '90', 
+            'default' => '90',
             'type' => 'theme_mod'
         )
     );
@@ -246,7 +246,7 @@ function montheme_customize_register($wp_customize)
     $wp_customize->add_control(
         'homepage_cover_title_size',
         array(
-            'label' => 'Taille du titre principal', 
+            'label' => 'Taille du titre principal',
             'description' => 'Taille du texte du titre principal',
             'section' => 'homepage_cover_text',
             'setting' => 'homepage_cover_title_size',
@@ -617,7 +617,7 @@ function montheme_customize_register($wp_customize)
 
     );
 
-        //La sous-section Style pour la citation
+    //La sous-section Style pour la citation
     $wp_customize->add_setting(
         'homepage_quote_style',
         array(

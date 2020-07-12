@@ -3,4 +3,3 @@
     echo montheme_display_widget('sidebar');
     ?>
 </aside>
-

@@ -1,6 +1,4 @@
   <?php get_header(); ?>
-
-
   <main class="container site-content">
       <section class="main-content">
           <!-- On vérifie si des articles sont publiés puis on boucle la liste entière -->
@@ -12,12 +10,13 @@
                           <!-- affiche la vignette de l'article si elle existe... -->
                           <?php if (has_post_thumbnail()) : ?>
                               <!-- ...dans une balise <img> qui prend en paramètre $size, $attribut['class', 'title'] -->
-                              <?php the_post_thumbnail('full', [
-                                  'class' => 'featured-image',
-                                  'title' => $thumbnail_title,
-                                    'alt' => $thumbnail_alt]);
-                              endif;
-                              ?>
+                          <?php the_post_thumbnail('full', [
+                                    'class' => 'featured-image',
+                                    'title' => $thumbnail_title,
+                                    'alt' => $thumbnail_alt
+                                ]);
+                            endif;
+                            ?>
                           <section class="entry-metadata">
                               <section class="entry-data">
                                   <!-- affiche la date de publication de l'article -->
@@ -39,7 +38,6 @@
                                     // on affiche le return $output espacé selon $separator
                                     echo trim($output, $separator);
                                     ?>
-
                                   <!-- on affiche le nombre de commentaire -->
                                   <h4 class="comments-number"><i class="fas fa-comment"></i><?php comments_number(' 0', ' 1', ' %'); ?></h4>
                               </section>
@@ -63,26 +61,21 @@
           <?php endwhile;
             endif; ?>
           <nav class="navigation pagination">
-          <?php 
-          the_posts_pagination(
-            array(
-                'prev_text' => '<i class="fas fa-arrow-left"></i> Précédent',
-                'next_text' => 'Suivant <i class="fas fa-arrow-right"></i>'
-            )
-          );
-        ?> 
+              <?php
+                the_posts_pagination(
+                    array(
+                        'prev_text' => '<i class="fas fa-arrow-left"></i> Précédent',
+                        'next_text' => 'Suivant <i class="fas fa-arrow-right"></i>'
+                    )
+                );
+                ?>
           </nav>
       </section>
-
       <?php
-       if(get_theme_mod('show_widget_sidebar', true)) {
-        // J'inclue mon fichier sidebar.php qui contient le widget sidebar
-        get_sidebar();
-      }
-      ?>
-     
-
-
+        if (get_theme_mod('show_widget_sidebar', true)) {
+            // J'inclue mon fichier sidebar.php qui contient le widget sidebar
+            get_sidebar();
+        }
+        ?>
   </main>
-
-  <?php get_footer(); ?>
+<?php get_footer(); ?>
